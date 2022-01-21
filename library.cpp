@@ -13,7 +13,7 @@ void main_menu(){
 
 void student_menu(){
 	cout << "Welcome To the student Menu" << endl;
-	cout << "Enter the department you want to search for the book press 1" << endl << endl
+	cout << "Enter the department you want to search for the book" << endl << endl
 		<< "Search For Book From the given departs" << endl
 		<< "1.CS Depart" << endl
 		<< "2.Finance" << endl
@@ -44,29 +44,43 @@ void admin_menu(){
 
 int main()
 {
-	char a = 'n';
-	while (a != '1' && a != '2' && a != '3')
+	char choice = 'n';
+	while (choice != '1' && choice != '2' && choice != '3' && choice != '4'	)
 	{
 		main_menu();
-		cin >> a;
+		cin >> choice;
 	}
-	if(a == '1')
+	if (choice == '1')
 	{
-		student_menu();
+		choice = 'n';
+		while (choice != '1' && choice != '2' && choice != '3' && choice != '4' && choice != '5' && choice != '6')
+		{
+			student_menu();
+			cin >> choice;
+		}
+		
 	}
-	else if (a == '2')
+	else if (choice == '2')
 	{
+		do {
 		librarian_menu();
+		cin >> choice;
+		} while (choice != '1' && choice != '2' && choice != '3' && choice != '4');
 	}
-	else if (a == '3')
+	else if (choice == '3')
 	{
-		admin_menu();
+		do {
+			admin_menu();
+			cin >> choice;
+		} while (choice != '1' && choice != '2' && choice != '3' && choice != '4' && choice != '5');
+	
 	}
 	else
 	{
+		cout << "Wrong Menu Entered" << endl;
 		exit;
 	}
-	
+
 	system("pause");
 	return 0;
 }

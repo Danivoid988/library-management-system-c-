@@ -1,0 +1,133 @@
+#include <iostream>
+using namespace std;
+class List
+{
+private:
+	int arr[50];
+public:
+	List()
+	{
+		
+		cout << "Enter Array Elements" << endl;
+		for (int i = 0; i < 50; i++)
+		{
+			cin >> arr[i];
+		}
+	}
+	void add(int a)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			arr[i] = arr[i] + a;
+		}
+		for (int i = 0; i < 50; i++)
+		{
+			cout << "The Values of the given indexes after addition are " << arr[i] << endl;
+		}
+	}
+	void Remove(int a)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			arr[i] = arr[i] - a;
+		}
+		for (int i = 0; i < 50; i++)
+		{
+			cout << "The Values of the given indexes after Removing are " << arr[i] << endl;
+		}
+	}
+	void RemoveAt(int key)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			if (arr[i] == key)
+			{
+				arr[i] = 0;
+				cout << arr[i];
+			}
+		}
+		for (int i = 0; i < 50; i++)
+		{
+			cout << "The Values of the given indexes after Removing are " << arr[i] << endl;
+		}
+	}
+
+	void search(int a)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			if (i == a)
+			{
+				cout << "The Index You Searched For is...." << arr[i] << endl;
+			}
+		}
+	}
+	void AddAtStart(int a)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			if (i == 0)
+			{
+				arr[i] = arr[i] + a;
+			}
+		}
+		for (int i = 0; i < 50; i++)
+		{
+			cout << "First Index Changed After New Index Values are" << arr[i] << endl;
+		}
+	}
+	void AddAtEnd(int a)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			if (i == 49)
+			{
+				arr[i] = arr[i] + a;
+			}
+		}
+		for (int i = 0; i < 50; i++)
+		{
+			cout << "Last Index Changed After New Index Values are" << arr[i] << endl;
+		}
+	}
+	void addAt(int a, int index)
+	{
+		
+		
+		for (int i = 0; i > index; i--)
+		{
+			arr[i] = arr[i - 1];
+		}
+		if (index >= 0 && index <= 50)
+		{
+			arr[index] = a;
+		}
+		else
+		{
+			cout << "Index Does Not Exist....." << endl;
+		}
+
+		cout << "Array Elements after insetion are  " << endl;
+		for (int i = 0; i < 50; i++)
+		{
+			cout << arr[i] << " " << endl;
+		}
+	}
+};
+
+
+
+int main()
+{
+	List obj;
+	obj.add(5);
+	obj.addAt(2,3);
+	obj.Remove(5);
+	obj.RemoveAt(3);
+	obj.search(5);
+	obj.AddAtStart(10);
+	obj.AddAtEnd(20);
+
+	system("pause");
+	return 0;
+}
